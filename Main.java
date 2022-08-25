@@ -1,6 +1,6 @@
 class Main {
   public static void main(String[] args) {
-    System.out.println("Hello world!");
+    // System.out.println("Hello world!");
     Graph g1 = new Graph(4);
     g1.addEdge(0, 1, 3);
     g1.addEdge(1, 0, 3);
@@ -16,5 +16,6 @@ class Main {
     System.out.println(g1.highestDegree()); // 2
     System.out.println(g1.lowestDegree()); // 0
     System.out.println(g1.complement());
+    System.out.println(g1.densidade());
   }
 }
