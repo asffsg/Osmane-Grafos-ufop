@@ -190,28 +190,34 @@ public class Graph {
     return -1;
   }
 
-  public boolean hasCycle(int origem) {
-    ArrayList<Integer> q = new ArrayList<Integer>();
-    ArrayList<Integer> r = new ArrayList<Integer>();
+  
+  public boolean hasCycleOriented(int origem) {
     int desc[] = new int[this.countNodes];
-    q.add(origem);
-    r.add(origem);
-    desc[origem] = 1;
 
-    while (!q.isEmpty()) {
-      int u = q.remove(0);
-      int v = verificaAdjacente(u, desc);
-      if (v != -1) {
-        q.add(v);
-        r.add(v);
-        desc[v] = 1;
-      } else {
-        return true;
+    List<Integer> q = new ArrayList<Integer>();
+    List<Integer> r = new ArrayList<Integer>();
+    for (int s = 0; s < this.countNodes; ++s) {
+      if (desc[s] == 0) {
+        q.add(origem);
+        r.add(origem);
+        desc[origem] = 1;
+
+        while (!q.isEmpty()) {
+          int u = q.remove(0);
+          int v = verificaAdjacente(u, desc);
+          if (v != -1) {
+            q.add(v);
+            r.add(v);
+            desc[v] = 1;
+          } else {
+            return true;
+          }
+        }
       }
     }
+
     return false;
   }
-
   public ArrayList<Integer> dfsRec(int s) {
     int[] desc = new int[this.countNodes];
     ArrayList<Integer> R = new ArrayList<>();
