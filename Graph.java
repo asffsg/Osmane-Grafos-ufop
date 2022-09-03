@@ -191,8 +191,8 @@ public class Graph {
   }
 
   public boolean hasCycle(int origem) {
-    List<Integer> q = new ArrayList<Integer>();
-    List<Integer> r = new ArrayList<Integer>();
+    ArrayList<Integer> q = new ArrayList<Integer>();
+    ArrayList<Integer> r = new ArrayList<Integer>();
     int desc[] = new int[this.countNodes];
     q.add(origem);
     r.add(origem);
